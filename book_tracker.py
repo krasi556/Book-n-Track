@@ -9,20 +9,16 @@ def add_book(title, author):
     print('Book-ed!')# Print a message confirming the addition
 
 def mark_as_read(title):
-    for _ in (titles):# Loop through the titles list
-        if title in titles:# If the title is found, update the corresponding status to "Read"
-            statuses.append('Read')
-            print('It\'s been added!')# Print confirmation or error if not found
-        else:
-            print('Can\'t be Tracked!')
-            
-def mark_as_unread(title):
-    for _ in titles:
         if title in titles:
-            statuses.append('Unread')# Same logic as mark_as_read, but set status to "Unread"
-            print('It\'s been added')
-        else:
-            print('Already there')
+            index = titles.index(title)
+            statuses[index] = 'Read'
+        # Loop through the titles list
+        # If the title is found, update the corresponding status to "Read"
+        # Print confirmation or error if not
+
+def mark_as_unread(title):
+# Same logic as mark_as_read, but set status to "Unread"
+
 def search_book(keyword):
     # Loop through the titles and authors
     # If keyword is found in title or author (case-insensitive), print book info
