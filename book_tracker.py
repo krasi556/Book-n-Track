@@ -65,7 +65,7 @@ def suggest_book():
 		selected_book = random.choice(books_unread)
 		selected_index = titles.index(selected_book)
 		selected_author = authors[selected_index]
-		print(f'{selected_book},\n by\n  {selected_author}')
+		print(f'{selected_book},\n by\n   {selected_author}')
 
 
 def delete_book(title):
