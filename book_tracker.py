@@ -1,29 +1,42 @@
-titles = []      # List of book titles
-authors = []     # List of book authors
-statuses = []    # List of read statuses: "Read" or "Unread"
+titles = ['Lord of the rings','Harry Potter']
+authors = ['j.r.r. tolkien', 'J. K. Rowling']
+statuses = ['unread','read']
+
+is_found = False
+
 
 def add_book(title, author):
-    titles.append(title) # Append the title to titles list
-    authors.append(author)# Append the author to authors list
-    statuses.append('Unread')# Append "Unread" to statuses list
-    print('Book-ed!')# Print a message confirming the addition
-
+    titles.append(title)
+    authors.append(author)
+    statuses.append('Unread')
+    print('Book-ed!')
 def mark_as_read(title):
         if title in titles:
             index = titles.index(title)
             statuses[index] = 'Read'
-        # Loop through the titles list
-        # If the title is found, update the corresponding status to "Read"
-        # Print confirmation or error if not
+            
+        else:
+            print('Title not found')
 
 def mark_as_unread(title):
-# Same logic as mark_as_read, but set status to "Unread"
+    if title in titles:
+        index = titles.index(title)
+        statuses[index] = 'Unread'
+    else:
+        print('Title not found')
 
 def search_book(keyword):
-    # Loop through the titles and authors
-    # If keyword is found in title or author (case-insensitive), print book info
-    # If no matches, print "No books found."
-
+    is_found = False
+    for index, i in enumerate(titles):
+        if keyword.lower() in i.lower() or keyword.lower() in authors[index].lower():
+            is_found = True
+            break
+    if is_found:
+        print(f'Title: {i}')
+        print(f'Author: {authors[index]}')
+        print(f'Status: {statuses[index]}')
+    else:
+        print('Nothing found')
 def list_books():
     # Loop through all books
     # Print each title, author, and status with numbering
