@@ -1,9 +1,8 @@
-titles = ['Lord of the rings', 'Harry Potter', 'The Witcher']  # List of book titles
-authors = ['J.R.R. Tolkien', 'J. K. Rowling', 'Andrzej Sapkowski']  # List of book authors
-statuses = ['unread', 'read', 'unread']  # List of read statuses: "Read" or "Unread"
-
+titles = ['Lord of the rings', 'Harry Potter', 'The Witcher']
+authors = ['J.R.R. Tolkien', 'J. K. Rowling', 'Andrzej Sapkowski']
+statuses = ['unread', 'read', 'unread']
 import random
-
+import os
 
 def add_book(title, author):
 	titles.append(title)
@@ -11,19 +10,24 @@ def add_book(title, author):
 	statuses.append('Unread')
 	print('Book-ed!')
 
-
 def mark_as_read(title):
-	if title in titles:
-		index = titles.index(title)
-		statuses[index] = 'Read'
+	lower_read = list(map(str.lower,titles))
+	for i in lower_read:
+		if i in lower_read:
+			index = lower_read.index(i)
+			statuses[index] = 'read'
+			break
 	else:
 		print('Title not found')
 
 
 def mark_as_unread(title):
-	if title in titles:
-		index = titles.index(title)
-		statuses[index] = 'Unread'
+	lower_read = list(map(str.lower,titles))
+	for i in lower_read:
+		if i in lower_read:
+			index = lower_read.index(i)
+			statuses[index] = 'unread'
+			break
 	else:
 		print('Title not found')
 
@@ -32,19 +36,18 @@ def search_book(keyword):
 	is_found = False
 	for index, i in enumerate(titles):
 		if keyword.lower() in i.lower() or keyword.lower() in authors[index].lower():
+			print(f'\nTitle: {i}')
+			print(f'Author: {authors[index]}')
+			print(f'{statuses[index]}')
 			is_found = True
-			break
-	if is_found:
-		print(f'Title: {i}')
-		print(f'Author: {authors[index]}')
-		print(f'{statuses[index]}')
-
+	if not is_found:
+		print('Not found')
 
 def list_books():
-	for i in range(len(titles)):
-		print(f'\n{i + 1}. Titles: {titles[i]}')
-		print(f'Author: {authors[i]}')
-		print(f'Status: {statuses[i]}')
+	for index, i in enumerate(titles):
+		print(f'\nTitle: {i}')
+		print(f'Author: {authors[index]}')
+		print(f'{statuses[index]}')
 		print()
 
 
@@ -76,11 +79,15 @@ def delete_book(title):
 	else:
 		print('Book not found')
 
+def saving_to_txt():
+	with open('Books', 'w') as txt:
+		for i in titles:
+			txt.write(f'{i}\n')
 
 def main():
 	print("📚 Welcome to the Digital Book Collection Manager 📚\n")
-	
 	while True:
+		saving_to_txt()
 		print("\nPlease choose an option:")
 		print("1. Add a new book")
 		print("2. Mark a book as read")
@@ -119,13 +126,12 @@ def main():
 		elif choice == '7':
 			title = input("Enter the title of the book to delete: ")
 			delete_book(title)
-		
+
 		elif choice == '8':
 			print("Goodbye! Happy reading! 📖")
 			break
-		
 		else:
-			print("Invalid option. Please choose a number from 1 to 8.")
+			print("Invalid option. Please choose a number from 1 to 9.")
 
 
 if __name__ == "__main__":
