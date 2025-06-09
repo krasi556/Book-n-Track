@@ -11,10 +11,9 @@ def add_book(title, author):
 	print('Book-ed!')
 
 def mark_as_read(title):
-	lower_read = list(map(str.lower,titles))
-	for i in lower_read:
-		if i in lower_read:
-			index = lower_read.index(i)
+	lower_title =title.lower()
+	for index,i in enumerate(titles):
+		if i.lower() == lower_title:
 			statuses[index] = 'read'
 			break
 	else:
@@ -22,10 +21,9 @@ def mark_as_read(title):
 
 
 def mark_as_unread(title):
-	lower_read = list(map(str.lower,titles))
-	for i in lower_read:
-		if i in lower_read:
-			index = lower_read.index(i)
+	lower_title = title.lower()
+	for index,i in enumerate(titles):
+		if i.lower() == lower_title:
 			statuses[index] = 'unread'
 			break
 	else:
