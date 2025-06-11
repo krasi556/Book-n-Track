@@ -7,7 +7,7 @@ import os
 def add_book(title, author):
 	titles.append(title)
 	authors.append(author)
-	statuses.append('Unread')
+	statuses.append('unread')
 	print('Book-ed!')
 
 def mark_as_read(title):
@@ -50,14 +50,13 @@ def list_books():
 
 
 def suggest_book():
-	is_found = False
 	books_unread = []
-	for index, i in enumerate(statuses):
-		if 'unread' in i.lower():
-			books_unread.append(titles[index])
-		else:
-			is_found = True
-	if not is_found:
+	for index in range(len(statuses)):
+		status = statuses[index].lower()
+		if status == 'unread':
+			book_title = titles[index]
+			books_unread.append(book_title)
+	if len(books_unread) == 0:
 		print('No unread books left')
 	else:
 		selected_book = random.choice(books_unread)
