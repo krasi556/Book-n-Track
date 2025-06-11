@@ -79,8 +79,8 @@ def delete_book(title):
 
 def saving_to_txt():
 	with open('Books', 'w') as txt:
-		for i in titles:
-			txt.write(f'{i}\n')
+		for i in range (len(titles)):
+			txt.write(f'{titles[i]} | {authors[i]}')
 
 def main():
 	print("📚 Welcome to the Digital Book Collection Manager 📚\n")
