@@ -46,10 +46,12 @@ def search_book(keyword):
 		print('Not found')
 
 def list_books():
-	for index, i in enumerate(titles):
-		print(f'\nTitle: {i}')
-		print(f'Author: {authors[index]}')
-		print(f'{statuses[index]}')
+	sorted_ = sorted(zip(titles, authors, statuses))
+	sorted_books = sorted(sorted_, key=lambda book: book[0].lower())
+	for title,author,status in sorted_books:
+		print(f'\nTitle: {title}')
+		print(f'Author: {author}')
+		print(f'{status}')
 		print()
 
 
