@@ -5,6 +5,10 @@ import random
 import os
 
 def add_book(title, author):
+	for i in titles:
+		if i.lower() == title.lower():
+			print(f'The title "{title}" already exists!')
+			return
 	titles.append(title)
 	authors.append(author)
 	statuses.append('unread')
@@ -79,7 +83,7 @@ def delete_book(title):
 def saving_to_txt():
 	with open('Books', 'w') as txt:
 		for i in range (len(titles)):
-			txt.write(f'{titles[i]} | {authors[i]}')
+			txt.write(f'{titles[i]} | {authors[i]}\n')
 
 def main():
 	print("📚 Welcome to the Digital Book Collection Manager 📚\n")
