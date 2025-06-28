@@ -1,6 +1,6 @@
-titles = ['Lord of the rings', 'Harry Potter', 'The Witcher']
-authors = ['J.R.R. Tolkien', 'J. K. Rowling', 'Andrzej Sapkowski']
-statuses = ['unread', 'read', 'unread']
+titles = ['Lord of the rings', 'Harry Potter', 'The Witcher','World of Warcaft']
+authors = ['J.R.R. Tolkien', 'J. K. Rowling', 'Andrzej Sapkowski','William King']
+statuses = ['unread', 'read', 'unread','Read']
 import random
 import os
 
